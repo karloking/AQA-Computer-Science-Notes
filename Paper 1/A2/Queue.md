@@ -50,4 +50,37 @@ EndIf
 IF Front = Rear
   PRINT "QUEUE EMPTY"
 ENDIF
+```
 
+###Test If Queue is Full
+```scala
+IF Rear = N
+PRINT "QUEUE IS FULL"
+```
+
+## Circular Queue
+Unlike linear queues Circular queues allow for memory to be re-used
+
+### Add an Item
+```scala 
+Queue(Tail) = x
+IF Queue(Tail) == Queue.length
+Queue(Tail) = 1
+Else Queue(Tail) = Queue(Tail) + 1
+ENDIF
+```
+
+### Remove an Item
+```scala
+X = Front
+IF Front == Queue.Length
+Front= 1
+ELSE 
+Front = Front + 1
+RETURN X
+```
+##Priority Queues
+This is based on the order of priority of the elements in the queue. In other words, each element of this type of queue has different level of priority attached to it; e.g., high priority or low priority.
+
+### How can it be implemented?
+Using a linked list is similar to using an array; again, we can keep the list sorted or unsorted. Note that if the list is sorted we must use linear search to find the place to insert the new value, but there is no need to move old values over. Also, unless we maintain a "tail" pointer, we should keep the list in order from high to low, since removing from the front of the list can be done. Note that for a linked list we don't need the numItems field; the empty operation returns true if the list is empty.
